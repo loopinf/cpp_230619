@@ -16,7 +16,6 @@ auto add(int a, int b) -> int { return a + b; }
 
 // typedef int (*PARR3)[3];
 // PARR3 foo()
-
 auto foo() -> int (*)[3]
 {
     static int x[3] = { 10, 20, 30 };
@@ -33,7 +32,25 @@ auto goo() -> int (*)(int, int)
     return add; // int (*)(int, int)
 }
 
+// 2) 반환 타입을 추론합니다.
+auto hoo()
+{
+    return add;
+}
+
+// 3) 템플릿 기반 라이브러리에서
+//    인자 타입을 통해 반환 타입을 결정할 때 사용됩니다.
+template <typename T1, typename T2>
+// decltype(a + b) add(T1 a, T2 b)
+auto Add(T1 a, T2 b) -> decltype(a + b)
+{
+    return a + b;
+}
+
 int main()
 {
     cout << add(10, 20) << endl;
+
+    auto fp = hoo();
+    cout << fp(10, 20) << endl;
 }
