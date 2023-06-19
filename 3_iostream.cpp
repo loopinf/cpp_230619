@@ -8,6 +8,8 @@ using namespace std;
 // 3. std::cout ??
 //    std::cin ??
 //    std::endl ??
+//    cout에 IO 조정자를 사용하였을 때,
+//    상태가 왜 유지되는가?
 
 int main()
 {

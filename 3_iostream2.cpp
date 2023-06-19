@@ -12,6 +12,7 @@ int main()
     // 단일 따옴표를 통해 구분할 수 있습니다.
     // => 가독성!
     int n = 0b11'11'10101'1111'010;
+    long long x = 1'000'000'000'000;
 
     // IO Manipulator(IO 조정자)
     // : hex, uppercase
