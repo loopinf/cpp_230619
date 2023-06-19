@@ -31,3 +31,22 @@ int main()
     cout << r << endl;
     cout << n << endl;
 }
+
+// 포인터의 기계어와 레퍼런스의 기계어는 동일합니다.
+// 개념은 분리해서 이해해야 합니다.
+/*
+    int& r = n; // int* p = &n;
+    r = 200;
+        lea     rax, QWORD PTR n$[rsp]
+        mov     QWORD PTR r$[rsp], rax
+        mov     rax, QWORD PTR r$[rsp]
+        mov     DWORD PTR [rax], 200
+
+   int* p = &n;
+   *p = 200;
+        lea     rax, QWORD PTR n$[rsp]
+        mov     QWORD PTR p$[rsp], rax
+        mov     rax, QWORD PTR p$[rsp]
+        mov     DWORD PTR [rax], 200
+
+*/
