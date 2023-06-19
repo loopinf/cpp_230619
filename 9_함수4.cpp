@@ -53,6 +53,11 @@ int main()
 //     있습니다.
 //  3) 간결한 함수를 대상으로 인라인 최적화가 유용합니다.
 
+// C99: static inline void foo() {}
+// C++: inline void foo() {}
+// => 인라인 함수는 internal linkage를 가지며,
+//    반드시 헤더 파일에 두어야 합니다.
+
 inline int square(int x)
 {
     return x * x;
