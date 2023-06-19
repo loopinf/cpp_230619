@@ -24,7 +24,7 @@ int main()
 // - 우항과 동일한 타입이 아닌 추론입니다.
 // - C의 auto 키워드를 다른 의미로 사용하고 있습니다.
 
-#if 1
+#if 0
 int main()
 {
     // auto int n;
@@ -41,16 +41,26 @@ int main()
 #if 0
 int main()
 {
-    const int c = 100;
-
-    auto n = c;
-
-#if 0
     const int c = 42;
     // c = 100;
 
     const auto c2 = c;
     // c2 = 42;
-#endif
+
 }
 #endif
+
+void foo()
+{
+    cout << "foo" << endl;
+}
+
+int main()
+{
+    // auto f = foo;
+    // f는 void (*)();
+
+    // void (*f)() = foo;
+    auto f = foo;
+    f();
+}
