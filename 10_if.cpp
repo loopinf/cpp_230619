@@ -28,9 +28,26 @@ int main()
 }
 #endif
 
-// If statement with Initializer, C++17
+// If/Switch statement with Initializer, C++17
+
+enum {
+    TASK_RUNNING,
+    TASK_STOPPED,
+};
+
+int GetTaskState() { return TASK_RUNNING; }
+
 int main()
 {
+    switch (int state = GetTaskState(); state) {
+    case TASK_RUNNING:
+        break;
+    case TASK_STOPPED:
+        break;
+    default:
+        break;
+    }
+
     if (int ret = OpenFile("a.txt"); ret != 0) {
         // 오류 처리
     }
