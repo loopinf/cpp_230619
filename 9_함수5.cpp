@@ -23,6 +23,7 @@ inline TYPE square(TYPE x)
 //    다양한 타입이 전달될 경우, 코드 메모리 사용량이 증가할 수 있습니다.
 //   > 인라인 최적화를 통해 코드 메모리 사용량을 최적화할 수 있습니다.
 
+// STL(Standard Template Library)
 int main()
 {
     cout << square(10) << endl; // TYPE -> int
@@ -31,3 +32,10 @@ int main()
     cout << square<double>(3.14F) << endl;
     // 명시적으로 타입을 지정할 수 있습니다.
 }
+
+// 스콧 마이어스
+// Effective C++ => C++98/03
+// More Effective C++
+// Effective STL
+
+// Effective Modern C++ => C++11/14
