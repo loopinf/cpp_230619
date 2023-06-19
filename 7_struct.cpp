@@ -26,4 +26,8 @@ int main()
     int arr[3] = { 10, 20, 30 };
     auto [a, b, c] = arr;
     cout << a << ", " << b << ", " << c << endl;
+    ++a;
+
+    // ???
+    cout << arr[0] << endl;
 }
