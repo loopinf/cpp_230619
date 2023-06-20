@@ -50,6 +50,17 @@ public:
 //  => 자신과 동일한 타입을 인자를 받는 생성자
 //      Point(const Point&)
 
+class Sample { };
+// Sample s;
+// Sample s2 = s;
+
+class Sample2 {
+public:
+    Sample2(const Sample&) { }
+};
+// 복사 생성자만 제공할 경우, 복사 생성자도 생성자이기 때문에
+// 컴파일러는 기본 생성자를 제공하지 않습니다.
+
 int main()
 {
     Point pt1 { 10, 20 };
