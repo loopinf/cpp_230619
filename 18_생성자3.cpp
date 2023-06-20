@@ -23,8 +23,9 @@ public:
 int main()
 {
     Rect r;
-    // 1.     leftTop - Point()
-    // 2. rightBottom - Point()
+    // 1.  Rect::Rect()
+    // 2.     leftTop - Point() - 초기화 리스트
+    // 3. rightBottom - Point() - 초기화 리스트
     // 3. Rect()
 
 } // ~Rect()

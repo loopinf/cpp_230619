@@ -7,7 +7,7 @@ class Point {
     int y;
 
 public:
-    Point(int a, int b)
+    Point(int a = 0, int b = 0)
         : x(a)
         , y(b)
     {
@@ -44,5 +44,5 @@ public:
 
 int main()
 {
-    Rect r;
+    Rect r; // 1) Rect::Rect() 생성자 호출
 }
