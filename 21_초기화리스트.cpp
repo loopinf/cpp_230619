@@ -22,11 +22,20 @@ class Sample {
     int& y;
 
 public:
+    // Uniform initialization
+    Sample(int a, int& r)
+        : x { a }
+        , y { r }
+    {
+    }
+
+#if 0
     Sample(int a, int& r)
         : x(a)
         , y(r)
     {
     }
+#endif
 
 #if 0
     Sample(int a, int& r)
