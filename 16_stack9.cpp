@@ -35,6 +35,10 @@ public:
     }
 };
 
+// 질문????
+template <typename T1, typename T2>
+class AAA { };
+
 // 클래스 템플릿은 타입 추론이 불가능합니다.
 // 명시적으로 타입을 지정해야 합니다.
 
