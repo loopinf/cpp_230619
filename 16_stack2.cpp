@@ -4,6 +4,8 @@ using namespace std;
 
 // 스택의 상태를 전역 변수가 아닌 사용자 정의 타입을 통해
 // 캡슐화 합니다.
+//  "데이터 캡슐화"
+
 struct Stack {
     int buff[10];
     int top;
