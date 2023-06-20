@@ -2,6 +2,8 @@
     "files.associations": {
         "ostream": "cpp",
         "iostream": "cpp",
-        "add.h": "c"
+        "add.h": "c",
+        "__config": "cpp",
+        "__nullptr": "cpp"
     }
 }
