@@ -4,7 +4,7 @@
 using namespace std;
 
 // 클래스도 템플릿으로 만들 수 있습니다.
-
+#if 0
 template <typename TYPE>
 class Stack {
 private:
@@ -34,6 +34,12 @@ public:
         return buff[--top];
     }
 };
+#endif
+// * 템플릿은 소스와 헤더파일로 분리할 수 없습니다.
+// => 헤더를 통해서만 제공되어야 합니다.
+//   stack.hpp(.h + .cpp) / Boost
+
+#include "stack.hpp"
 
 // 질문????
 template <typename T1, typename T2>
