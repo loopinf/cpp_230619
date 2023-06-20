@@ -23,6 +23,14 @@ public:
         top = 0;
     }
 
+#if 0
+    Stack()
+    {
+        buff = new int[10];
+        top = 0;
+    }
+#endif
+
     void push(int n)
     {
         buff[top++] = n;
