@@ -17,5 +17,5 @@ int main()
     // c2 = 1000;
 
     int n2 = 100;
-    decltype(n2) n3;
+    decltype(n2) n3; // 초기화 없이 사용할 수 있습니다.
 }

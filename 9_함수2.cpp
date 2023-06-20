@@ -21,9 +21,9 @@ int main()
 // 동일한 이름의 함수를 여러개 만들 수 있습니다.
 // > 함수 오버로딩(overloading)
 
-int square(int x) { return x * x; }
-double square(double x) { return x * x; }
-long long square(long long x) { return x * x; }
+int square(int x) { return x * x; } // __Z3squarei
+double square(double x) { return x * x; } // __Z3squared
+long long square(long long x) { return x * x; } // __Z3squareL
 
 // 원리
 // 1) 함수의 이름을 지을 때,

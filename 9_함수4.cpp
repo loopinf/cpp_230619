@@ -56,7 +56,7 @@ int main()
 // C99: static inline void foo() {}
 // C++: inline void foo() {}
 // => 인라인 함수는 internal linkage를 가지며,
-//    반드시 헤더 파일에 두어야 합니다.
+//    외부에서 사용하기 위해서는 헤더 파일에 두어야 합니다.
 
 inline int square(int x)
 {

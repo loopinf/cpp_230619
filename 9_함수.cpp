@@ -11,6 +11,7 @@ using namespace std;
 // 1) 반드시 마지막 파라미터부터 지정해야 합니다.
 // 2) 선언부에 작성되어야 합니다.
 
+// 헤더 파일
 int Add(int a, int b, int c = 0, int d = 0);
 
 int main()
@@ -24,6 +25,7 @@ int main()
     //      Add(10, 20, 0, 0)
 }
 
+// 소스 파일
 int Add(int a, int b, int c /* =0 */, int d /* =0 */)
 {
     return a + b + c + d;

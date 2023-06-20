@@ -35,6 +35,7 @@ int main()
     printf("%d\n", c1);
 
     int n = 42;
-    const int c2 = n; // 런타임 상수
+    // constexpr int c2 = n; // 오류, 런타임 상수
+    const int c2 = n;
     printf("%d\n", c2);
 }

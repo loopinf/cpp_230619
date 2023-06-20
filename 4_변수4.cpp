@@ -38,18 +38,27 @@ int main()
 }
 #endif
 
-#if 0
+#if 1
 int main()
 {
     const int c = 42;
     // c = 100;
 
+    // 1) const 제한자는 사라집니다.
     const auto c2 = c;
     // c2 = 42;
 
+    int n = 42;
+    int& r = n;
+
+    // 2) & 도 사라집니다.
+    auto& r2 = r;
+    r2 = 100;
+    cout << n << endl;
 }
 #endif
 
+#if 0
 void foo()
 {
     cout << "foo" << endl;
@@ -64,3 +73,4 @@ int main()
     auto f = foo;
     f();
 }
+#endif
