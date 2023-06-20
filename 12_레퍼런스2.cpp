@@ -6,7 +6,7 @@ void Inc1(int n) { ++n; } // Call by value
 
 void Inc2(int* pn)
 {
-    if (pn != NULL)
+    if (pn == NULL)
         return;
 
     ++(*pn);

@@ -20,6 +20,10 @@ int main()
     // 순회 가능한 타입에 대해서 사용할 수 있습니다.
     // - 배열, 문자열(string), 컨테이너
     string s = "hello";
+    for (auto& c : s) {
+        c = toupper(c);
+    }
+
     for (auto c : s) {
         cout << c << endl;
     }
