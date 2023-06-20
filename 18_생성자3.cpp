@@ -16,17 +16,31 @@ class Rect {
     Point rightBottom;
 
 public:
-    Rect() { cout << "Rect()" << endl; }
-    ~Rect() { cout << "~Rect()" << endl; }
+    // Rect() { cout << "Rect()" << endl; }
+
+    Rect()
+        : leftTop()
+        , rightBottom()
+    {
+        cout << "Rect()" << endl;
+    }
+
+    ~Rect()
+    {
+        cout << "~Rect()" << endl;
+
+        // ~Point() - rightBottom
+        // ~Point() - leftTop
+    }
 };
 
 int main()
 {
     Rect r;
-    // 1.  Rect::Rect()
+    // 1.  Rect::Rect() 생성자 호출
     // 2.     leftTop - Point() - 초기화 리스트
     // 3. rightBottom - Point() - 초기화 리스트
-    // 3. Rect()
+    // 3. Rect() - 블록 수행
 
 } // ~Rect()
 //   ~Point() - rightBottom
