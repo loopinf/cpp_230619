@@ -1,4 +1,4 @@
-// 16_stack6.cpp
+// 16_stack5.cpp
 #include <iostream>
 using namespace std;
 
