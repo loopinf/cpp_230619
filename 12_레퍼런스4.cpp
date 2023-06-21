@@ -5,6 +5,8 @@ using namespace std;
 // C++ 레퍼런스
 // 1) lvalue reference
 //   - lvalue만 참조할 수 있습니다.
+//   - const lvalue reference
+//      lvalue, rvalue 모두 참조할 수 있습니다.
 
 // 2) rvalue reference, C++11
 //   - rvalue만 참조할 수 있습니다.
@@ -13,11 +15,13 @@ using namespace std;
 //         특정 메모리 위치를 참조하는 표현식입니다.
 //         lvalue는 메모리 주소가 할당되어 있으므로, & 연산자를 이용해서
 //         주소를 얻을 수 있습니다.
+//         "식별자가 존재하는 것"
 
 // rvalue: 왼쪽에 올수 없는 것
 //         일회용 임시 대상체를 참조하는 표현식입니다.
 //         생성된 위치에서 조작할 수 없고, 소멸됩니다.
 //         주소를 얻을 수 없습니다.
+//         "식별자가 존재하지 않습니다."
 
 #if 0
 int main()
@@ -68,7 +72,7 @@ void foo(int&& rr)
 }
 // 1) move - 소유권 이동
 // 2) forward - 퍼펙트 포워딩
-
+#if 0
 int main()
 {
     foo(10); // rvalue
@@ -85,4 +89,27 @@ int main()
 
     int&& rr2 = 10;
     rr2 = 100;
+}
+#endif
+
+class Point {
+public:
+    Point() { cout << "Point()" << endl; }
+    ~Point() { cout << "~Point()" << endl; }
+};
+
+int main()
+{
+    Point pt;
+    Point& r = pt;
+    // Point&& rr = pt; // 불가능 합니다.
+
+    // 임시 객체
+    cout << "-------" << endl;
+    Point&& r2 = Point(); // 임시 객체 생성 문법입니다.
+    cout << "-------" << endl;
+
+    // const& : lvalue, rvalue 모두 참조할 수 있습니다.
+    const Point& c1 = pt;
+    const Point& c2 = Point();
 }
