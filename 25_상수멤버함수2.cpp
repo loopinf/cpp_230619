@@ -25,10 +25,19 @@ public:
 class Rect {
     Point leftTop;
 
+    mutable string cache;
+    // 객체의 상수성과 관계없는 멤버 데이터
+    // => 상수 멤버 함수 안에서 수정이 가능해야 합니다.
+
 public:
     Rect(int x, int y)
         : leftTop(x, y)
     {
+    }
+
+    void Print() const
+    {
+        cache = "캐시된 데이터";
     }
 
     // const Point leftTop;
