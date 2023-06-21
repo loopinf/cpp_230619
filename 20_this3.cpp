@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+#if 1
 // private 소멸자 의도
 // : 객체 생성을 new를 통해서만 하겠다는 의도.
 //  => 객체의 수명을 관리하는 방법을 제공하겠다.
@@ -27,10 +28,11 @@ int main()
 
     // 파괴를 위한 멤버 함수를 제공해야 합니다.
     // delete p;
-    p->Release();
+    p->Release(); // Sample::Release(p);
 
     // Sample s;
 }
+#endif
 
 #if 0
 // private 생성자 의도
