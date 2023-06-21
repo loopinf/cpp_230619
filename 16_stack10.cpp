@@ -14,7 +14,7 @@ using namespace std;
 //---------
 //     stack / queue
 
-#if 1
+#if 0
 #include <stack>
 
 int main()
@@ -40,7 +40,7 @@ int main()
 }
 #endif
 
-#if 0
+#if 1
 #include <vector>
 
 int main()
@@ -56,6 +56,9 @@ int main()
 
     cout << v[0] << endl;
     cout << v[3] << endl;
+
+    cout << v.back() << endl;
+    v.pop_back();
 
     for (auto e : v) {
         cout << e << endl;
