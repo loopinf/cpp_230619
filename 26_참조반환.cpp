@@ -174,6 +174,7 @@ int main()
 }
 #endif
 
+// 안돼니 해결해야 한다.
 class User {
     string name_; // 필수
     int age_; // 옵션
