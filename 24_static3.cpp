@@ -20,6 +20,7 @@ using namespace std;
 // 4. 멤버 데이터 / 멤버 함수
 //  > 객체를 통해서만 접근이 가능합니다.
 
+#if 0
 class Sample {
 public:
     // static constexpr int cnt = 100;
@@ -80,4 +81,39 @@ int main()
 
     s.foo();
     s.goo();
+}
+#endif
+
+// Design Pattern
+//  1995년 에릭감마 외 3명, Gang of Four, GoF
+//   - 23가지 패턴
+
+// Singleton Pattern
+// - 의도: 오직 하나의 객체를 생성하고, 언제 어디서든 동일한 방법을 통해
+//        객체를 참조할 수 있다.
+
+// 마이어스의 싱글톤
+class Mouse {
+    // 1) private 생성자
+    Mouse() { }
+
+public:
+    // 2) 복사 금지
+    Mouse(const Mouse& rhs) = delete;
+
+    // 3) 언제 어디서든 객체를 참조할 수 있는 정적 멤버 함수
+    static Mouse& GetInstance()
+    {
+        static Mouse m;
+        return m;
+    }
+};
+
+int main()
+{
+    Mouse& m1 = Mouse::GetInstance();
+    Mouse& m2 = Mouse::GetInstance();
+
+    cout << &m1 << endl;
+    cout << &m2 << endl;
 }

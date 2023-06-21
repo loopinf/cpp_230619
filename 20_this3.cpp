@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-#if 1
+#if 0
 // private 소멸자 의도
 // : 객체 생성을 new를 통해서만 하겠다는 의도.
 //  => 객체의 수명을 관리하는 방법을 제공하겠다.
