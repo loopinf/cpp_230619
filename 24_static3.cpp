@@ -138,13 +138,15 @@ private:
 public:
     static User* CreateWithEmail(const std::string& email)
     {
-        return nullptr;
+        return new User("email: " + email);
     }
 
     static User* CreateWithName(const std::string& name)
     {
-        return nullptr;
+        return new User("name: " + name);
     }
+
+    void Print() { cout << id << endl; }
 
 public:
 #if 0
@@ -165,5 +167,8 @@ int main()
     // User user2("Tom");
 
     User* p1 = User::CreateWithEmail("hello@gmail.com");
+    p1->Print();
+
     User* p2 = User::CreateWithName("Tom");
+    p2->Print();
 }
