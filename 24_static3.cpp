@@ -88,10 +88,12 @@ int main()
 //  1995년 에릭감마 외 3명, Gang of Four, GoF
 //   - 23가지 패턴
 
+// 활용 1)
 // Singleton Pattern
 // - 의도: 오직 하나의 객체를 생성하고, 언제 어디서든 동일한 방법을 통해
 //        객체를 참조할 수 있다.
 
+#if 0
 // 마이어스의 싱글톤
 class Mouse {
     // 1) private 생성자
@@ -116,4 +118,50 @@ int main()
 
     cout << &m1 << endl;
     cout << &m2 << endl;
+}
+#endif
+
+// 2) 정적 팩토리 메소드
+#include <string>
+
+class User {
+    string id;
+
+private:
+    User(const string& i)
+        : id(i)
+    {
+    }
+
+public:
+    static User* CreateWithEmail(const std::string& email)
+    {
+        return nullptr;
+    }
+
+    static User* CreateWithName(const std::string& name)
+    {
+        return nullptr;
+    }
+
+public:
+#if 0
+    User(const string& name) { }
+    User(const string& email) { }
+#endif
+};
+
+// 1. 생성자의 오버로딩을 통해 객체를 생성하는 다양한 방법을 제공할 수 있지만
+//  오버로딩은 인자 타입이 다를 경우에만 가능합니다.
+
+// 2. 생성자의 이름은 동일하기 때문에
+//    객체 생성의 의도를 읽기 어렵다.
+
+int main()
+{
+    // User user1("hello@gmail.com");
+    // User user2("Tom");
+
+    User* p1 = User::CreateWithEmail("hello@gmail.com");
+    User* p2 = User::CreateWithName("Tom");
 }
