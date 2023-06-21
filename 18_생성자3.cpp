@@ -42,6 +42,7 @@ int main()
     // 3. rightBottom - Point() - 초기화 리스트
     // 3. Rect() - 블록 수행
 
-} // ~Rect()
-//   ~Point() - rightBottom
-//   ~Point() - leftTop
+} // 1) Rect::~Rect()
+  // 2) Rect::~Rect() 블록 수행
+//   3) Point::~Point() - rightBottom
+//   4) Point::~Point() - leftTop
