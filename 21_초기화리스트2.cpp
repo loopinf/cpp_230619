@@ -7,7 +7,7 @@ class Point {
     int y;
 
 public:
-    Point(int a = 0, int b = 0)
+    Point(int a, int b)
         : x(a)
         , y(b)
     {
@@ -49,8 +49,8 @@ public:
     }
 
     Rect(int x1, int y1, int x2, int y2)
-        : leftTop(x1, y1)
-        , rightBottom(x2, y2)
+        : leftTop { x1, y1 }
+        , rightBottom { x2, y2 }
     {
     }
 };
@@ -61,6 +61,7 @@ int main()
 }
 #endif
 
+#if 1
 #include <string>
 
 class Sample {
@@ -95,3 +96,4 @@ int main()
 {
     Rect r;
 }
+#endif
