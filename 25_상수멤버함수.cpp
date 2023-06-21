@@ -46,10 +46,14 @@ int main()
     const Point* p = &pt; // 상수 멤버 함수만 호출 가능
     p->Print();
 
-    const Point c(100, 200); // 상수 객체도 상수 멤버 함수만 호출 가능
-    c.Print();
-
     // 상수 참조도 상수 멤버 함수만 호출 가능
     const Point& r = pt;
     r.Print();
+
+    const Point c(100, 200); // 상수 객체도 상수 멤버 함수만 호출 가능
+    c.Print();
+
+    // 상수 객체는 반드시 const T* / const T&를 통해서만 참조 가능합니다.
+    const Point* cp = &c;
+    const Point& cr = c;
 }
