@@ -122,6 +122,8 @@ int main()
 #endif
 
 // 2) 정적 팩토리 메소드
+//  Factory: SW에서 객체를 생성하는 역활
+
 #include <string>
 
 class User {
