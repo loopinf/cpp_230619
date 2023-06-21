@@ -8,6 +8,7 @@ using namespace std;
 
 // 2. private은 외부에서 접근이 불가능합니다.
 //    멤버 함수를 통해서 접근이 가능합니다.
+//    - friend 함수 / friend 클래스
 
 // 3. friend
 //   : friend로 선언된 함수와 클래스는 private 멤버에 접근이 가능합니다.
