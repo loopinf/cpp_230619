@@ -18,6 +18,7 @@ public:
         , ref(rhs.ref)
     {
         ++(*ref);
+        // 참조 계수 증감이 스레드 안전해야 합니다.
     }
 
     User(const char* s, int n)
