@@ -14,6 +14,7 @@ class User {
     // User(const User&);
     // 2) delete function => 복사 금지
     User(const User&) = delete;
+    // User(User&&) = delete;
 
 public:
     User(const char* s, int n)

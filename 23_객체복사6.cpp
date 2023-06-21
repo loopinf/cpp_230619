@@ -77,6 +77,22 @@ void Swap(T& a, T& b)
     b = std::move(a);
 }
 
+// 1. 복사 생성자를 제공하지 않으면,
+//    컴파일러가 멤버를 복사하는 복사 생성자를 제공합니다.
+
+// 2. 이동 생성자를 제공하지 않으면
+//    컴파일러가 멤버를 이동하는 이동 생성자를 제공합니다.
+
+// 3. 복사 생성자를 금지하면, 이동 생성자도 금지됩니다.
+
+class AAA {
+public:
+    AAA() { }
+    AAA(const AAA& rhs) = delete;
+};
+
 int main()
 {
+    AAA a;
+    AAA b = std::move(a);
 }
