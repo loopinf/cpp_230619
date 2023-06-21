@@ -45,6 +45,24 @@ public:
     }
 };
 
+// 상수 멤버 함수만 제공할 경우
+//        Point p  ----> 상수 멤버 함수
+//  const Point p  ----> 상수 멤버 함수
+//  const Point* p ----> 상수 멤버 함수
+//  const Point& p ----> 상수 멤버 함수
+
+// 비상수 멤버 함수만 제공할 경우
+//        Point p  ----> 비상수 멤버 함수
+//  const Point p  ----> X
+//  const Point* p ----> X
+//  const Point& p ----> X
+
+// 상수 멤버 함수 / 비상수 멤버 함수
+//        Point p  ----> 비상수 멤버 함수
+//  const Point p  ----> 상수 멤버 함수
+//  const Point* p ----> 상수 멤버 함수
+//  const Point& p ----> 상수 멤버 함수
+
 void foo(const Rect& rect)
 {
     const Point& pt = rect.GetLeftTop();
