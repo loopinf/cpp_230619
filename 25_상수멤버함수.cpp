@@ -21,7 +21,6 @@ public:
     // 2. 멤버 함수를 만들 때,
     //    멤버 함수 내부에서 멤버 데이터를 변경하지 않는 경우
     //    반드시 상수 멤버 함수로 만들어야 합니다.
-
     void Print() const
     {
         // x = 10;
@@ -43,4 +42,14 @@ int main()
     pt.Print();
 
     foo(pt);
+
+    const Point* p = &pt; // 상수 멤버 함수만 호출 가능
+    p->Print();
+
+    const Point c(100, 200); // 상수 객체도 상수 멤버 함수만 호출 가능
+    c.Print();
+
+    // 상수 참조도 상수 멤버 함수만 호출 가능
+    const Point& r = pt;
+    r.Print();
 }
