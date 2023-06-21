@@ -14,7 +14,7 @@ using namespace std;
 //---------
 //     stack / queue
 
-#if 0
+#if 1
 #include <stack>
 
 int main()
@@ -26,6 +26,7 @@ int main()
     s.push(30);
 
     // 데이터를 제거하는 연산과 참조하는 연산이 분리되어 있습니다.
+    // => 반환용 임시 객체의 복사 생성 비용을 제거하기 위한 설계
     // - 데이터 제거: s.pop()
     // - 데이터 참조: s.top()
     cout << s.top() << endl;
@@ -39,6 +40,7 @@ int main()
 }
 #endif
 
+#if 0
 #include <vector>
 
 int main()
@@ -59,3 +61,4 @@ int main()
         cout << e << endl;
     }
 }
+#endif

@@ -179,13 +179,13 @@ class Stack {
 private:
     // 멤버 데이터 - 상태 / 속성(property)
     T* buff;
-    int top;
+    int top_;
 
 public:
     Stack(int size = 10)
     {
         buff = new T[size];
-        top = 0;
+        top_ = 0;
     }
 
     ~Stack()
@@ -193,17 +193,56 @@ public:
         delete[] buff;
     }
 
-    void push(T n)
+    void push(const T& n)
     {
-        buff[top++] = n;
+        buff[top_++] = n;
     }
 
+#if 0
     T pop()
     {
-        return buff[--top];
+        return buff[--top_];
     }
+#endif
+    // C++ STL의 컨테이너는 데이터를 참조하는 연산과 제거하는 연산을
+    // 분리하였습니다.
+    T& top() { return buff[top_ - 1]; }
+    void pop() { --top_; }
 };
 
+class Sample {
+public:
+    Sample() { }
+
+    Sample(const Sample&) { cout << "Sample(const Sample&)" << endl; }
+    ~Sample() { }
+};
+
+// void push(T n)
+// stack<int>       ----> void push(int n)
+// stack<Sample>    ----> void push(Sample n)
+
+// void push(const T& n)
+// stack<int>       ----> void push(const int& n)
+// stack<Sample>    ----> void push(const Sample& n)
+
+int main()
+{
+    Sample s;
+
+    Stack<Sample> s1;
+    // cout << "----------" << endl;
+    s1.push(s);
+    // cout << "----------" << endl;
+
+    cout << "----------" << endl;
+    s1.top();
+    s1.pop();
+
+    cout << "----------" << endl;
+}
+
+#if 0
 int main()
 {
     Stack<int> s1(100);
@@ -216,3 +255,4 @@ int main()
     cout << s1.pop() << endl;
     cout << s1.pop() << endl;
 }
+#endif
