@@ -42,6 +42,7 @@ int main()
 //   => calloc(100, sizeof(int));
 
 // 8. new는 메모리를 할당할 때, 초기화가 가능합니다.
+#if 0
 int main()
 {
     // int* p = static_cast<int*>(malloc(sizeof(int) * 100));
@@ -56,4 +57,23 @@ int main()
     cout << arr[0] << endl;
     cout << arr[2] << endl;
     delete[] arr;
+}
+#endif
+
+// 9. malloc/free는 객체를 대상으로 생성자와 소멸자가 호출되지 않습니다.
+// 10. new/delete 객체를 대상으로 생성자와 소멸자가 호출됩니다.
+
+// 11. free/delete는 nullptr을 대상으로 아무일도 일어나지 않습니다.
+int main()
+{
+    int* p = nullptr;
+
+    // nullptr을 대상으로 안전하게 사용할 수 있습니다.
+    delete p;
+    delete[] p;
+
+    // 굳이 널 체크를 수행할 필요가 없습니다.
+    if (p) {
+        free(p); // 아무일도 수행하지 않습니다.
+    }
 }
