@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+#include <atomic>
+
 // 복사 정책
 // 2) 참조 계수
 
@@ -19,6 +21,7 @@ public:
     {
         ++(*ref);
         // 참조 계수 증감이 스레드 안전해야 합니다.
+        // => Atomic operations(원자적 연산)
     }
 
     User(const char* s, int n)
@@ -43,6 +46,9 @@ public:
 
 int main()
 {
+    atomic<int> ref(0);
+    cout << ++ref << endl;
+
     User user("Tom", 42);
     user.Print();
 
