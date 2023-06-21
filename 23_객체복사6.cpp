@@ -88,11 +88,16 @@ void Swap(T& a, T& b)
 class AAA {
 public:
     AAA() { }
-    AAA(const AAA& rhs) = delete;
+    // AAA(const AAA& rhs) = delete;
 };
 
 int main()
 {
-    AAA a;
-    AAA b = std::move(a);
+    // AAA a;
+    // AAA b = std::move(a);
+    int a = 10;
+    int b = std::move(a);
+
+    cout << a << endl;
+    cout << b << endl;
 }
