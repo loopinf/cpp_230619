@@ -17,6 +17,15 @@ public:
 int main()
 {
     Sample s = Sample();
+
+    const Sample& r = s;
+    Sample const& r2 = s;
+
+    const Sample* p1 = &s;
+    Sample const* p2 = &s;
+
+    const Sample* const p3 = &s;
+    Sample const* const p4 = &s;
 }
 // 1) g++ 22_복사생성자4.cpp -fno-elide-constructors -std=c++98
 // > 복사 생성자
