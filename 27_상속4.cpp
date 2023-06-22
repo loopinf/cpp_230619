@@ -30,6 +30,7 @@ int main()
 } // 1> Derived::~Derived()
 #endif
 
+#if 1
 class MB {
 public:
     MB() { cout << "MB()" << endl; }
@@ -97,3 +98,4 @@ int main()
 {
     Derived d; // 1) Derived::Derived()
 }
+#endif
