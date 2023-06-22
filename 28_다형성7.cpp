@@ -13,21 +13,36 @@ using namespace std;
 
 class Animal {
 public:
+    int n = 100;
+
+public:
     Animal() { cout << "Animal()" << endl; }
     virtual ~Animal() { cout << "~Animal()" << endl; }
 };
 
 class Dog : public Animal {
+    int n = 42;
+
 public:
     Dog() { cout << "Dog()" << endl; }
     ~Dog() override { cout << "~Dog()" << endl; }
+
+    void Print() const
+    {
+        cout << Animal::n << endl; // 부모의 멤버
+        cout << n << endl; // 자식의 멤버
+    }
 };
 
 int main()
 {
-    // Dog d;
+    Dog d;
+    d.Print();
 
     Animal* p = new Dog;
+    // 부모의 포인터/참조를 통해 자식의 기능을 이용하기 위해서는
+    // 반드시 해당 기능이 부모로부터 비롯되어야 합니다.
+    cout << "xxxx:" << p->n << endl;
 
     delete p; // Animal::~Animal()
 }
