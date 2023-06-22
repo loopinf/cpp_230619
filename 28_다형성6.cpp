@@ -6,6 +6,7 @@ using namespace std;
 // - final 멤버 함수 => 오버라이딩 금지
 // - final 클래스   => 상속 금지
 
+#if 0
 class Car {
 public:
     virtual void Start() const
@@ -44,4 +45,43 @@ int main()
 {
     Sedan* p = new Avante;
     p->Start();
+}
+#endif
+
+// C++ 특징
+class Base {
+public:
+    // 생성자에서 가상함수를 호출하면,
+    // 동적바인딩하지 않습니다.
+    Base()
+    {
+        Init();
+    }
+
+    void foo()
+    {
+        Init(); // 객체의 타입에 따라, 함수가 결정됩니다.
+    }
+
+    virtual void Init()
+    {
+        cout << "Base::Init" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void Init() override
+    {
+        cout << "Derived::Init" << endl;
+    }
+};
+
+int main()
+{
+    Derived d;
+    d.foo();
+
+    Base b;
+    b.foo();
 }
