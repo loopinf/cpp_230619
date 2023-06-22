@@ -9,6 +9,7 @@ using namespace std;
 //    StopRecording() 함수를 제공하고 있다.
 
 // => Policy Based Design, 단위 전략
+//   "Modern C++ Design"
 
 template <typename BlackBox>
 class Car {
