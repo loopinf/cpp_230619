@@ -14,10 +14,11 @@ using namespace std;
 //     c1.cnt;
 
 class Car {
-    // 정적 멤버 변수 선언
+
     int color;
 
 public:
+    // 정적 멤버 변수 선언
     static int cnt;
 
     Car()
