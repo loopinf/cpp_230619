@@ -207,6 +207,8 @@ public:
     // C++ STL의 컨테이너는 데이터를 참조하는 연산과 제거하는 연산을
     // 분리하였습니다.
     T& top() { return buff[top_ - 1]; }
+    const T& top() const { return buff[top_ - 1]; }
+
     void pop() { --top_; }
 };
 

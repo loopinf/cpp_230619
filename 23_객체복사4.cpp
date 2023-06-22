@@ -15,16 +15,22 @@ public:
     {
     }
 
-    void AddRef() { ++ref; }
+    void AddRef()
+    {
+        ++ref;
+        cout << "Ref: " << ref << endl;
+    }
+
     void Release()
     {
         if (--ref == 0) {
             delete this;
         }
+        cout << "Ref: " << ref << endl;
     }
 
 private:
-    ~Resource() { }
+    ~Resource() { cout << "~Resource()" << endl; }
 };
 
 int main()

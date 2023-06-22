@@ -20,6 +20,7 @@ public:
     {
     }
 
+    // Point pt2 = pt1;
     Point(const Point& rhs)
         : x_(rhs.x_)
         , y_(rhs.y_)
