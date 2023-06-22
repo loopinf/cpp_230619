@@ -56,8 +56,9 @@ public:
 
 int main()
 {
+    // C++17부터 생성자의 인자를 통해 타입을 추론할 수 있습니다.
     HDCamera camera;
-    Car car(&camera); // 정책을 컴파일 타임에 결정합니다.
+    Car<HDCamera> car(&camera); // 정책을 컴파일 타임에 결정합니다.
 
     car.Go();
 }
