@@ -13,14 +13,31 @@ class Animal {
 
 public:
     virtual void Go() const { }
+    virtual void Cry() const { }
+    virtual void Hoo() const { }
+
+    void foo() { }
 };
 
 class Dog : public Animal {
     int speed;
 };
 
+void foo() { }
+
 int main()
 {
-    cout << sizeof(Animal) << endl;
-    cout << sizeof(Dog) << endl;
+    printf("%p\n", foo);
+    printf("%p\n", &foo);
+
+    // cout << sizeof(Animal) << endl;
+    // cout << sizeof(Dog) << endl;
+
+    // 멤버 함수는 반드시 &를 사용해야 합니다.
+    printf("%p\n", &Animal::Go);
+    printf("%p\n", &Animal::Cry);
+    printf("%p\n", &Animal::Hoo);
+    //----
+
+    printf("%p\n", &Animal::foo);
 }
