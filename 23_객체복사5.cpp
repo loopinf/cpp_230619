@@ -52,6 +52,9 @@ public:
     }
 };
 
+// => std::auto_ptr => Deprecated
+//  : 기본 복사 동작이 소유권 이동
+
 // 복사 금지 + 소유권 이동
 // => std::unique_ptr
 
