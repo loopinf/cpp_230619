@@ -57,4 +57,10 @@ int main()
 
     p = &s;
     p->Start();
+
+    Car& r1 = c;
+    r1.Start();
+
+    Car& r2 = s;
+    r2.Start();
 }
