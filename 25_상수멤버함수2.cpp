@@ -75,6 +75,7 @@ public:
 void foo(const Rect& rect)
 {
     const Point& pt = rect.GetLeftTop();
+    // pt.Set(10, 20);
     pt.Print();
 }
 
