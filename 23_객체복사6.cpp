@@ -133,8 +133,8 @@ public:
     // }
 };
 
-// unique_ptr: 자원의 독점 - 복사 금지 + 소유권 이동
-// shared_ptr: 자원의 공유 - 참조 계수
+// unique_ptr: 자원(소유권)의 독점 - 복사 금지 + 소유권 이동
+// shared_ptr: 자원(소유권)의 공유 - 참조 계수
 
 int main()
 {
