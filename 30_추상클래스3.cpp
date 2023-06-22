@@ -25,6 +25,7 @@ using namespace std;
 // 1) 카메라의 제작자와 자동차의 제작자가 카메라의 인터페이스(사용 방법)를 약속합니다.
 
 // C++에서 인터페이스를 정의하는 방법
+// => 명시적인 인터페이스 약속
 class BlackBox {
 public:
     virtual ~BlackBox() { }
@@ -86,7 +87,7 @@ public:
 int main()
 {
     HDCamera camera;
-    Car car(&camera);
+    Car car(&camera); // 정책을 실행 시간에 결정합니다.
 
     car.Go();
 }
