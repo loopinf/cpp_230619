@@ -5,7 +5,15 @@ using namespace std;
 class Car {
 public:
     virtual void Start() const { cout << "Car Start" << endl; }
+
+    void foo();
 };
+
+// Car.cpp => 인라인 최적화 불가능
+// Car.h   => 인라인 최적화
+void Car::foo()
+{
+}
 
 class Sedan : public Car {
 public:
