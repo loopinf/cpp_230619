@@ -20,7 +20,7 @@ using namespace std;
 // 4. 멤버 데이터 / 멤버 함수
 //  > 객체를 통해서만 접근이 가능합니다.
 
-#if 0
+#if 1
 class Sample {
 public:
     // static constexpr int cnt = 100;
@@ -57,6 +57,7 @@ public:
 
     static void koo()
     {
+        cout << "koo" << endl;
     }
 
     // 명시적으로 객체의 주소를 전달받으면, 멤버 함수와 멤버 데이터에 접근이
@@ -70,8 +71,23 @@ public:
 
 int Sample::cnt = 0;
 
+void handler()
+{
+    cout << "handler" << endl;
+}
+
+void foo(void (*f)())
+{
+    cout << "f start" << endl;
+    f();
+    cout << "f end" << endl;
+}
+
 int main()
 {
+    foo(handler);
+    foo(Sample::koo);
+
     cout << Sample::cnt << endl;
 
     Sample s;
@@ -121,6 +137,7 @@ int main()
 }
 #endif
 
+#if 1
 // 2) 정적 팩토리 메소드
 //  Factory: SW에서 객체를 생성하는 역활
 
@@ -172,3 +189,4 @@ int main()
     User* p2 = User::CreateWithName("Tom");
     p2->Print();
 }
+#endif
