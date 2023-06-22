@@ -120,17 +120,17 @@ public:
         delete[] name;
     }
 
-    Sample(const Sample& rhs)
-    {
-        name = new char[strlen(rhs.name) + 1];
-        strcpy(name, rhs.name);
-    }
+    // Sample(const Sample& rhs)
+    // {
+    //     name = new char[strlen(rhs.name) + 1];
+    //     strcpy(name, rhs.name);
+    // }
 
-    Sample(Sample&& rhs)
-        : name(rhs.name)
-    {
-        rhs.name = nullptr; // !!!
-    }
+    // Sample(Sample&& rhs)
+    //     : name(rhs.name)
+    // {
+    //     rhs.name = nullptr; // !!!
+    // }
 };
 
 // unique_ptr: 자원의 독점 - 복사 금지 + 소유권 이동
@@ -141,7 +141,7 @@ int main()
     Sample s("Tom");
 
     Sample s1 = s; // 복사 생성자 호출
-    Sample s2 = std::move(s); // 이동 생성자 호출
+    // Sample s2 = std::move(s); // 이동 생성자 호출
     // s는 자원을 더이상 참조하고 있지 않습니다.
 
     Sample s3 = Sample("Bob"); // 이동 생성자 호출
