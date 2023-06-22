@@ -119,7 +119,6 @@ int main()
     user.SetAddress("Seoul");
     user.SetJob("Student");
 
-    // Builder Pattern
     // Chaining
     user.SetName("Tom")
         .SetAge(42)
@@ -174,28 +173,14 @@ int main()
 }
 #endif
 
-// 안돼니 해결해야 한다.
+class UserBuilder;
 class User {
     string name_; // 필수
     int age_; // 옵션
     string address_; // 옵션
     string job_; // 옵션
 
-    User(const string& name, int age, const string& address, const string& job)
-        : name_(name)
-        , age_(age)
-        , address_(address)
-        , job_(job)
-    {
-    }
-
-    User(const UserBuilder& builder)
-        : name_(builder.name_)
-        , age_(builder.age_)
-        , address_(builder.address_)
-        , job_(builder.job_)
-    {
-    }
+    User(const UserBuilder& builder);
 
     friend class UserBuilder;
 };
@@ -236,6 +221,14 @@ public:
 
     friend class User;
 };
+
+User::User(const UserBuilder& builder)
+    : name_(builder.name_)
+    , age_(builder.age_)
+    , address_(builder.address_)
+    , job_(builder.job_)
+{
+}
 
 int main()
 {
