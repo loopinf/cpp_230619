@@ -74,6 +74,12 @@ int main()
                 //           Circle --> Circle::Draw
                 //         Triangle --> Triangle::Draw
             }
+        } else if (cmd == 0) {
+            break;
         }
+    }
+
+    for (auto e : shapes) {
+        delete e;
     }
 }
