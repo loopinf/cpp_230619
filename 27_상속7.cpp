@@ -28,13 +28,15 @@ using namespace std;
 //    외부에는 공개하지 않겠다.
 //    "부모의 인터페이스는 물려받지 않겠다."
 
-#if 0
+#if 1
 template <typename TYPE>
 class Stack : private vector<TYPE> {
 public:
     void push(const TYPE& v)
     {
         vector<TYPE>::push_back(v);
+        // 템플릿에서 부모의 멤버함수를 호출할 때
+        // 위와 같이 사용해야 합니다.
     }
 
     TYPE& top()
@@ -57,6 +59,7 @@ public:
 //     사용할 수 있습니다.
 
 // C++에서는 Stack Adapter라고 합니다.
+#if 0
 #include <list>
 #include <deque>
 #include <stack>
@@ -82,10 +85,12 @@ public:
         c.pop_back();
     }
 };
+#endif
 
 int main()
 {
-    Stack<int, list<int>> s;
+    // Stack<int, list<int>> s;
+    Stack<int> s;
 
     s.push(10);
     s.push(20);
