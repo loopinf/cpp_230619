@@ -23,6 +23,7 @@ int main()
 }
 #endif
 
+#if 0
 void foo(void) { }
 int add(int a, int b) { return a + b; }
 // 0000000000000004 T _add
@@ -30,4 +31,15 @@ int add(int a, int b) { return a + b; }
 int main(void)
 {
     printf("Hello, C\n");
+}
+#endif
+
+int main()
+{
+    int n = 0;
+    ++n;
+    // 결과는 증가된 값
+
+    n++;
+    // 증가되기 이전의 값
 }
