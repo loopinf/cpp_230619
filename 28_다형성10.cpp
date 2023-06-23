@@ -23,11 +23,12 @@ public:
         m.unlock();
     }
 
+protected:
     virtual void DrawImpl() const = 0;
 };
 
 class Rect : public Shape {
-public:
+protected:
     void DrawImpl() const override
     {
         cout << "Draw Rect" << endl;
@@ -35,13 +36,13 @@ public:
 };
 
 class Circle : public Shape {
-public:
+protected:
     void DrawImpl() const override { cout << "Draw Circle" << endl; }
 };
 
 // 새로운 도형의 추가
 class Triangle : public Shape {
-public:
+protected:
     void DrawImpl() const override { cout << "Triangle Circle" << endl; }
 };
 
