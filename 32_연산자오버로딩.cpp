@@ -30,13 +30,27 @@ Complex operator+(const Complex& lhs, const Complex& rhs)
     return Complex(lhs.re + rhs.re, lhs.im + rhs.im);
 }
 
+Complex operator+(int n, const Complex& rhs)
+{
+    return Complex(0, 0);
+}
+
+Complex operator+(const Complex& rhs, int n)
+{
+    return n + rhs;
+}
+
 // 연산자 오버로딩
 // => 객체를 대상으로 연산자를 사용할 경우,
 //    약속된 이름의 멤버 함수 또는 일반 함수를 통해
 //    수행됩니다.
 
 // 1) 연산자 우선 순위는 동일합니다.
-//    a + b * c;
+//    a + (b * c);
+//    => a.operator+(b.operator*(c))
+
+//    a * b + c
+//    => a.operator*(b).operator+(c)
 
 // 2) 피연산자의 개수도 변경되지 않습니다.
 //    a + b
@@ -75,6 +89,11 @@ int main()
     Complex c1(10, 3);
     c1.Print();
 
+    // Complex r = c1 + 10;
+    Complex r = 10 + c1;
+    // c1.operator+(10);
+    r.Print();
+
     Complex c2(5, 3);
     c2.Print();
 
@@ -87,5 +106,6 @@ int main()
 
     // Complex result = c1.Add(c2);
     // Complex result = Add(c1, c2);
+
     result.Print();
 }
