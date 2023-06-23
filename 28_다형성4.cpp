@@ -34,6 +34,7 @@ public:
 // 2) 동적 바인딩(dynamic binding)
 //   : 컴파일 타임에 실행 시간에 p가 참조하는 객체의 타입을 조사해서
 //     함수를 호출하는 코드를 삽입합니다.
+//   "객체의 가상함수 테이블을 통해 함수를 호출합니다."
 //     => 실행 시간에 결정됩니다.
 
 // 멤버 함수의 호출을 동적 바인딩으로 바꾸는 키워드
@@ -48,14 +49,15 @@ public:
 int main()
 {
     Car c;
-    // c.Start();
+    c.Start();
     Sedan s;
-    // s.Start();
+    s.Start();
 
     Car* p = &c;
     p->Start();
 
     p = &s;
+    // static_cast<Sedan*>(p)->Start();
     p->Start();
 
     Car& r1 = c;

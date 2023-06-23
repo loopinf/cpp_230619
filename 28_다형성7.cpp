@@ -44,5 +44,6 @@ int main()
     // 반드시 해당 기능이 부모로부터 비롯되어야 합니다.
     cout << "xxxx:" << p->n << endl;
 
-    delete p; // Animal::~Animal()
+    delete p; // => 정적 바인딩 - Animal::~Animal()
+              // => 동적 바인딩 - Dog::~Dog()
 }

@@ -28,7 +28,7 @@ using namespace std;
 //    외부에는 공개하지 않겠다.
 //    "부모의 인터페이스는 물려받지 않겠다."
 
-#if 1
+#if 0
 template <typename TYPE>
 class Stack : private vector<TYPE> {
 public:
@@ -59,7 +59,7 @@ public:
 //     사용할 수 있습니다.
 
 // C++에서는 Stack Adapter라고 합니다.
-#if 0
+#if 1
 #include <list>
 #include <deque>
 #include <stack>

@@ -26,7 +26,10 @@ class Rect : public Shape {
 public:
     void Draw() const override { cout << "Draw Rect" << endl; }
 
-    Shape* Clone() const override
+    // 공변 반환의 법칙
+    // => 부모의 멤버 함수를 오버라이딩 할 때, 반환 타입을 반환 타입의 하위 타입으로
+    //    사용할 수 있습니다.
+    Rect* Clone() const override
     {
         return new Rect(*this);
     }
@@ -36,7 +39,7 @@ class Circle : public Shape {
 public:
     void Draw() const override { cout << "Draw Circle" << endl; }
 
-    Shape* Clone() const override
+    Circle* Clone() const override
     {
         return new Circle(*this);
     }
@@ -44,6 +47,10 @@ public:
 
 int main()
 {
+    Rect rect;
+    // Rect* p = static_cast<Rect*>(rect.Clone());
+    Rect* p = rect.Clone();
+
     vector<Shape*> shapes;
 
     while (1) {
@@ -63,6 +70,14 @@ int main()
 
             Shape* p = shapes[index];
             shapes.push_back(p->Clone());
+
+#if 0
+            if (typeid(*p) == typeid(Rect)) {
+                shapes.push_back(new Rect(*static_cast<Rect*>(p)));
+            } else if (typeid(*p) == typeid(Circle)) {
+                shapes.push_back(new Circle(*static_cast<Circle*>(p)));
+            }
+#endif
 
 #if 0
             if (p->type == 0) {

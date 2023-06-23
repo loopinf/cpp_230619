@@ -15,7 +15,7 @@ class Animal {
 public:
     // 부모의 멤버는 부모의 생성자를 통해 초기화되어야 합니다.
     Animal(int n)
-        : age_(n)
+        : age_ { n }
     {
     }
 };

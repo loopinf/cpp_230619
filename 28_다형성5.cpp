@@ -15,13 +15,16 @@ using namespace std;
 class Car {
 public:
     virtual void Start() const { cout << "Car Start" << endl; }
+    virtual void foo() { }
 };
 
 class Sedan : public Car {
 public:
-    // virtual void Start() {}
+    // virtual void Start() const { }
+
     // virtual void Start() const override {}
     void Start() const override { cout << "Car Start" << endl; }
+    void foo() override { }
 };
 
 int main()

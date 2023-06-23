@@ -6,28 +6,37 @@ using namespace std;
 // - final 멤버 함수 => 오버라이딩 금지
 // - final 클래스   => 상속 금지
 
-#if 0
+#if 1
 class Car {
 public:
-    virtual void Start() const
-    {
-        cout << "Car::Start" << endl;
-    };
+    virtual void Start() const = 0;
+    // {
+    //     cout << "Car::Start" << endl;
+    // };
 };
 
 class Sedan : public Car {
 public:
     // 모든 Sedan은 반드시 아래 함수를 수행해야 합니다.
     // => final 멤버 함수는 오버라이딩 금지됩니다.
+    // => Design Pattern, Template Method Pattern
     void Start() const override final
     {
         cout << "Sedan::Start" << endl;
+        Go();
     }
+
+    virtual void Go() const { cout << "Sedan Go" << endl; }
 };
 
 // 클래스에 final이 지정되면, 상속이 금지됩니다.
 class Avante final : public Sedan {
 public:
+    void Go() const override
+    {
+        cout << "Avante Go" << endl;
+    }
+
 #if 0
     void Start() const override
     {
@@ -48,6 +57,7 @@ int main()
 }
 #endif
 
+#if 0
 // C++ 특징
 class Base {
 public:
@@ -85,3 +95,4 @@ int main()
     Base b;
     b.foo();
 }
+#endif
