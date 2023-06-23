@@ -1,17 +1,22 @@
 #include <iostream>
 using namespace std;
 
+namespace aaa {
 class Shape {
     int a;
 
 public:
     virtual void Draw() { }
 };
+}
+
+class Rect : public aaa::Shape {
+};
 
 int main()
 {
-    Shape s1;
+    aaa::Shape s1;
     s1.Draw(); // Shape::Draw(&s1);
 
-    printf("%p\n", &Shape::Draw);
+    printf("%p\n", &aaa::Shape::Draw);
 }
