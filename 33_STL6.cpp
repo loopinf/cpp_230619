@@ -72,6 +72,15 @@ public:
 
 int main()
 {
+    int v = 10;
+    auto f = [&v](int a, int b) {
+        ++v;
+        return a + b + v;
+    };
+    cout << v << endl;
+    f(10, 20);
+    cout << v << endl;
+
     Button button("닫기");
     Window window;
 
