@@ -70,13 +70,34 @@ public:
     }
 };
 
+// 컴파일러가 만들어주는 함수 객체의 형태
+class Functor {
+    int& v;
+
+public:
+    Functor(int& n)
+        : v(n)
+    {
+    }
+
+    int operator()(int a, int b) const
+    {
+        ++v;
+        return a + b + v;
+    }
+};
+
 int main()
 {
     int v = 10;
-    auto f = [&v](int a, int b) {
-        ++v;
+    auto f = [v](int a, int b) {
+        // ++v;
+        cout << "xxx: " << v << endl;
         return a + b + v;
     };
+    v = 100;
+    // auto f = Functor(v);
+
     cout << v << endl;
     f(10, 20);
     cout << v << endl;
