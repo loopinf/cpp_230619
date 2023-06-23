@@ -40,7 +40,7 @@ ostream cout;
 // 1. endl은 함수 입니다.
 // 2. endl을 IO 조정자라고 합니다.
 
-using namespace xstd;
+using namespace std;
 
 ostream& menu(ostream& os)
 {
