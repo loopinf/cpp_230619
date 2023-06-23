@@ -24,6 +24,25 @@ public:
         // => Atomic operations(원자적 연산)
     }
 
+    User& operator=(const User& rhs)
+    {
+        if (&rhs == this) {
+            return *this;
+        }
+
+        // 참조 계수 감소
+        if (*ref > 0 && --*ref == 0) {
+            delete[] name;
+            delete ref;
+        }
+
+        name = rhs.name;
+        age = rhs.age;
+        ++(*ref);
+
+        return *this;
+    }
+
     User(const char* s, int n)
         : age(n)
     {
@@ -43,6 +62,11 @@ public:
 
     void Print() { cout << name << ", " << age << endl; }
 };
+
+// User u1 -----> "Bob" : ref - 0
+
+// User u2 -----> "Tom" : ref - 1
+// u1 = u2;
 
 int main()
 {

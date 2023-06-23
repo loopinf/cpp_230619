@@ -18,6 +18,8 @@ class User {
 
     // 2) delete function => 복사 금지
     User(const User&) = delete;
+    User& operator=(const User&) = delete;
+
     // User(User&&) = delete;
 
 public:
