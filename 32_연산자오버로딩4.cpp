@@ -23,6 +23,8 @@ public:
 ostream& operator<<(ostream& os, const Point& pt)
 {
     return os << pt.GetX() << ", " << pt.GetY();
+    // os.operator<<(pt.GetX()).operator<<(", ")
+    //   .operator<<(pt.GetY()) => os
 }
 
 istream& operator>>(istream& is, Point& pt)
