@@ -24,9 +24,6 @@ class User {
     // User(User&&) = delete;
     // User& operator=(User&&) = delete;
 
-    // User(User&&) = default;
-    // User& operator=(User&&) = default;
-
 public:
     User(User&& rhs)
         : name(rhs.name)
@@ -34,6 +31,22 @@ public:
     {
         rhs.name = nullptr;
         rhs.age = 0;
+    }
+
+    User& operator=(User&& rhs)
+    {
+        if (&rhs == this) {
+            return *this;
+        }
+
+        delete[] name;
+
+        name = rhs.name;
+        age = rhs.age;
+
+        rhs.name = nullptr;
+
+        return *this;
     }
 
     User(const char* s, int n)
