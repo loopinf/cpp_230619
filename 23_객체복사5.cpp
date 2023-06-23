@@ -20,7 +20,12 @@ class User {
     User(const User&) = delete;
     User& operator=(const User&) = delete;
 
+    // => 이동 금지
     // User(User&&) = delete;
+    // User& operator=(User&&) = delete;
+
+    // User(User&&) = default;
+    // User& operator=(User&&) = default;
 
 public:
     User(User&& rhs)
